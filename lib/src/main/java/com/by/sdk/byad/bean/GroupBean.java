@@ -1,7 +1,7 @@
 package com.by.sdk.byad.bean;
 
 public class GroupBean {
-    private GAdInfo adInfo;
+    private BYAdInfo adInfo;
 
     private Object loadedAd;
     private Object renderedAd;
@@ -33,11 +33,11 @@ public class GroupBean {
         isRenderFail = renderFail;
     }
 
-    public GAdInfo getAdInfo() {
+    public BYAdInfo getAdInfo() {
         return adInfo;
     }
 
-    public void setAdInfo(GAdInfo adInfo) {
+    public void setAdInfo(BYAdInfo adInfo) {
         this.adInfo = adInfo;
     }
 

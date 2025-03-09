@@ -3,9 +3,9 @@ package com.by.sdk.ands.bd;
 import com.baidu.mobads.sdk.api.BDAdConfig;
 import com.baidu.mobads.sdk.api.BDDialogParams;
 import com.baidu.mobads.sdk.api.MobadsPermissionSettings;
-import com.by.sdk.byad.GAdConfig;
-import com.by.sdk.byad.GAdSdk;
-import com.by.sdk.byad.utils.GContanst;
+import com.by.sdk.byad.BYAdConfig;
+import com.by.sdk.byad.BYAdSdk;
+import com.by.sdk.byad.utils.BYAdContanst;
 import com.by.sdk.ands.custom.GCustomInitLoader;
 
 import java.util.Map;
@@ -21,10 +21,10 @@ public class BDInitManager extends GCustomInitLoader {
                             .setDlDialogType(BDDialogParams.TYPE_BOTTOM_POPUP)
                             .setDlDialogAnimStyle(BDDialogParams.ANIM_STYLE_NONE)
                             .build())
-                    .build(GAdSdk.getContext());
+                    .build(BYAdSdk.getContext());
 
             bdAdConfig.init();
-            GAdConfig.CustomController customController = GAdSdk.getConfig().customController();
+            BYAdConfig.CustomController customController = BYAdSdk.getConfig().customController();
             if (customController!=null){
                 if (customController.isCanUsePersonalRecommend()){
                     MobadsPermissionSettings.setLimitPersonalAds(false);
@@ -51,6 +51,6 @@ public class BDInitManager extends GCustomInitLoader {
 
     @Override
     public String getPlatform() {
-        return GContanst.PLATFROM_BD;
+        return BYAdContanst.PLATFROM_BD;
     }
 }

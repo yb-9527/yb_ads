@@ -8,7 +8,7 @@ import com.by.sdk.ad.intertitial.IntertitialAdLoader;
 import com.by.sdk.ad.reward.RewardAdLoader;
 import com.by.sdk.ad.splash.SplashAdLoader;
 import com.by.sdk.byad.ISdkInitConfig;
-import com.by.sdk.byad.bean.GAdInfo;
+import com.by.sdk.byad.bean.BYAdInfo;
 import com.by.sdk.byad.adpaster.IPlatformLoader;
 import com.by.sdk.ands.BasePlatform;
 import com.by.sdk.ands.custom.banner.GCustomBannerAdapter;
@@ -26,7 +26,7 @@ public class CustomPlatform extends BasePlatform {
     }
 
     @Override
-    public IPlatformLoader<SplashAdLoader> splashLoader(SplashAdLoader adLoader, GAdInfo info) {
+    public IPlatformLoader<SplashAdLoader> splashLoader(SplashAdLoader adLoader, BYAdInfo info) {
         if (!TextUtils.isEmpty(info.getCls())){
             try {
                 Class<?> aClass = Class.forName(info.getCls());
@@ -41,7 +41,7 @@ public class CustomPlatform extends BasePlatform {
     }
 
     @Override
-    public IPlatformLoader<RewardAdLoader> rewardLoader(RewardAdLoader adLoader, GAdInfo info) {
+    public IPlatformLoader<RewardAdLoader> rewardLoader(RewardAdLoader adLoader, BYAdInfo info) {
         if (!TextUtils.isEmpty(info.getCls())){
             try {
                 Class<?> aClass = Class.forName(info.getCls());
@@ -56,7 +56,7 @@ public class CustomPlatform extends BasePlatform {
     }
 
     @Override
-    public IPlatformLoader<FeedAdLoader> feedLoader(FeedAdLoader adLoader, GAdInfo info) {
+    public IPlatformLoader<FeedAdLoader> feedLoader(FeedAdLoader adLoader, BYAdInfo info) {
         if (!TextUtils.isEmpty(info.getCls())){
             try {
                 Class<?> aClass = Class.forName(info.getCls());
@@ -71,7 +71,7 @@ public class CustomPlatform extends BasePlatform {
     }
 
     @Override
-    public IPlatformLoader<IntertitialAdLoader> intertitialLoader(IntertitialAdLoader adLoader, GAdInfo info) {
+    public IPlatformLoader<IntertitialAdLoader> intertitialLoader(IntertitialAdLoader adLoader, BYAdInfo info) {
         if (!TextUtils.isEmpty(info.getCls())){
             try {
                 Class<?> aClass = Class.forName(info.getCls());
@@ -86,7 +86,7 @@ public class CustomPlatform extends BasePlatform {
     }
 
     @Override
-    public IPlatformLoader<BannerAdLoader> bannerLoader(BannerAdLoader adLoader, GAdInfo info) {
+    public IPlatformLoader<BannerAdLoader> bannerLoader(BannerAdLoader adLoader, BYAdInfo info) {
         if (!TextUtils.isEmpty(info.getCls())){
             try {
                 Class<?> aClass = Class.forName(info.getCls());

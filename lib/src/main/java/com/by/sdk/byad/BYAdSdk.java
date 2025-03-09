@@ -3,19 +3,19 @@ package com.by.sdk.byad;
 import android.content.Context;
 import android.util.Log;
 
-public class GAdSdk {
+public class BYAdSdk {
     private static Context context;
-    private static GAdConfig config;
-    public static void init(Context context,GAdConfig config){
-        if (GAdSdk.config!=null){
+    private static BYAdConfig config;
+    public static void init(Context context, BYAdConfig config){
+        if (BYAdSdk.config!=null){
             return;
         }
-        GAdSdk.context = context;
-        GAdSdk.config = config;
+        BYAdSdk.context = context;
+        BYAdSdk.config = config;
     }
 
-    public static GAdConfig getConfig(){
-        if(GAdSdk.config==null){
+    public static BYAdConfig getConfig(){
+        if(BYAdSdk.config==null){
             Log.e("G_ad","adConfig is null");
         }
         return config;

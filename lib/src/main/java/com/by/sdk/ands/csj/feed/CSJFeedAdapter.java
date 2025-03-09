@@ -8,7 +8,7 @@ import com.bytedance.sdk.openadsdk.TTAdNative;
 import com.bytedance.sdk.openadsdk.TTAdSdk;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
-import com.by.sdk.byad.GAdSlot;
+import com.by.sdk.byad.BYAdSlot;
 import com.by.sdk.byad.utils.LogUtil;
 import com.by.sdk.ands.custom.bean.GCustomInfo;
 import com.by.sdk.ands.custom.feed.GCustomFeedAdapter;
@@ -19,7 +19,7 @@ import java.util.List;
 public class CSJFeedAdapter extends GCustomFeedAdapter {
     private static final String TAG = "CSJFeedAdapter";
     @Override
-    public void loadCustomAd(Context context, GAdSlot adSlot, GCustomInfo info) {
+    public void loadCustomAd(Context context, BYAdSlot adSlot, GCustomInfo info) {
         int adWidth = adSlot.getWidth();
         int adHeight = adSlot.getHeight();
 

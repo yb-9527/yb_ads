@@ -5,7 +5,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.by.sdk.byad.utils.GContanst;
+import com.by.sdk.byad.utils.BYAdContanst;
 import com.by.sdk.byad.utils.LogUtil;
 import com.by.sdk.ands.custom.feed.GCustomFeedNativeAd;
 import com.qq.e.ads.cfg.VideoOption;
@@ -164,31 +164,31 @@ public class GDTFeedNativeAd extends GCustomFeedNativeAd {
     private int getInteractionType(NativeUnifiedADData nativeUnifiedADData) {
         try {
             if (nativeUnifiedADData!=null){
-                return nativeUnifiedADData.isAppAd() ? GContanst.INTERACTION_TYPE_DOWNLOAD_APP : GContanst.INTERACTION_TYPE_NORMAL;
+                return nativeUnifiedADData.isAppAd() ? BYAdContanst.INTERACTION_TYPE_DOWNLOAD_APP : BYAdContanst.INTERACTION_TYPE_NORMAL;
             }
         } catch(Throwable e) {
             e.printStackTrace();
         }
-        return GContanst.INTERACTION_TYPE_NORMAL;
+        return BYAdContanst.INTERACTION_TYPE_NORMAL;
     }
 
     private int getAdPatternType(NativeUnifiedADData nativeUnifiedADData) {
         try {
             switch (nativeUnifiedADData.getAdPatternType()) {
                 case AdPatternType.NATIVE_VIDEO:
-                    return GContanst.NATIVE_VIDEO;
+                    return BYAdContanst.NATIVE_VIDEO;
                 case AdPatternType.NATIVE_1IMAGE_2TEXT:
                 case AdPatternType.NATIVE_2IMAGE_2TEXT:
-                    return GContanst.NATIVE_LARGE_IMG;
+                    return BYAdContanst.NATIVE_LARGE_IMG;
                 case AdPatternType.NATIVE_3IMAGE:
-                    return GContanst.NATIVE_GROUP_IMG;
+                    return BYAdContanst.NATIVE_GROUP_IMG;
                 default:
-                    return GContanst.NATIVE_LARGE_IMG;
+                    return BYAdContanst.NATIVE_LARGE_IMG;
             }
         } catch (Throwable e) {
             e.printStackTrace();
         }
-        return GContanst.NATIVE_LARGE_IMG;
+        return BYAdContanst.NATIVE_LARGE_IMG;
     }
 
     @Override

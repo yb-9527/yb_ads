@@ -3,7 +3,7 @@ package com.by.sdk.ands.gdt.intertitial;
 import android.app.Activity;
 import android.content.Context;
 
-import com.by.sdk.byad.GAdSlot;
+import com.by.sdk.byad.BYAdSlot;
 import com.by.sdk.byad.error.ErrorCodeUtil;
 import com.by.sdk.byad.utils.LogUtil;
 import com.by.sdk.ands.custom.bean.GCustomInfo;
@@ -24,7 +24,7 @@ public class GDTIntertitialAdapter extends GCustomIntertitialAdapter {
     }
 
     @Override
-    public void loadCustomAd(Context context, GAdSlot adSlot, GCustomInfo info) {
+    public void loadCustomAd(Context context, BYAdSlot adSlot, GCustomInfo info) {
         unifiedInterstitialAD = new UnifiedInterstitialAD((Activity) context, info.getPid(), new UnifiedInterstitialADListener() {
             @Override
             public void onADReceive() {

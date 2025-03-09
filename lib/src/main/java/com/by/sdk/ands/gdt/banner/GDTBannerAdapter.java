@@ -5,7 +5,7 @@ import android.content.Context;
 import android.os.Looper;
 import android.view.ViewGroup;
 
-import com.by.sdk.byad.GAdSlot;
+import com.by.sdk.byad.BYAdSlot;
 import com.by.sdk.byad.error.ErrorCodeUtil;
 import com.by.sdk.byad.utils.LogUtil;
 import com.by.sdk.ands.custom.banner.GCustomBannerAdapter;
@@ -35,7 +35,7 @@ public class GDTBannerAdapter extends GCustomBannerAdapter {
     }
 
     @Override
-    public void loadCustomAd(Context context, GAdSlot adSlot, GCustomInfo info) {
+    public void loadCustomAd(Context context, BYAdSlot adSlot, GCustomInfo info) {
         LogUtil.d(TAG,"load gdt custom ad,current thread="+(Looper.myLooper()==Looper.getMainLooper()));
         gdtBannerView = new UnifiedBannerView((Activity) context, info.getPid(), new UnifiedBannerADListener() {
             @Override

@@ -5,8 +5,8 @@ import com.bytedance.sdk.openadsdk.TTAdConfig;
 import com.bytedance.sdk.openadsdk.TTAdConstant;
 import com.bytedance.sdk.openadsdk.TTAdSdk;
 import com.bytedance.sdk.openadsdk.TTCustomController;
-import com.by.sdk.byad.GAdSdk;
-import com.by.sdk.byad.utils.GContanst;
+import com.by.sdk.byad.BYAdSdk;
+import com.by.sdk.byad.utils.BYAdContanst;
 import com.by.sdk.ands.custom.GCustomInitLoader;
 
 import org.json.JSONArray;
@@ -20,7 +20,7 @@ public class CSJInitManager extends GCustomInitLoader {
     @Override
     protected void initADN(String appId, String appKey, Map<String, Object> map) {
         try {
-            TTAdSdk.init(GAdSdk.getContext(),buildConfig(appId));
+            TTAdSdk.init(BYAdSdk.getContext(),buildConfig(appId));
             TTAdSdk.start(new TTAdSdk.Callback() {
                 @Override
                 public void success() {
@@ -46,8 +46,8 @@ public class CSJInitManager extends GCustomInitLoader {
          *
          * 1，不屏蔽个性化推荐广告
          */
-        if (GAdSdk.getConfig().customController()!=null){
-            if (GAdSdk.getConfig().customController().isCanUsePersonalRecommend()){
+        if (BYAdSdk.getConfig().customController()!=null){
+            if (BYAdSdk.getConfig().customController().isCanUsePersonalRecommend()){
                 personalTypeValue="1";
             }else {
                 personalTypeValue="0";
@@ -69,8 +69,8 @@ public class CSJInitManager extends GCustomInitLoader {
 
                     @Override
                     public boolean isCanUseLocation() {
-                        if (GAdSdk.getConfig().customController()!=null){
-                            return GAdSdk.getConfig().customController().isCanUseLocation();
+                        if (BYAdSdk.getConfig().customController()!=null){
+                            return BYAdSdk.getConfig().customController().isCanUseLocation();
                         }
                         return true;
                     }
@@ -78,8 +78,8 @@ public class CSJInitManager extends GCustomInitLoader {
 
                     @Override
                     public boolean isCanUsePhoneState() {
-                        if (GAdSdk.getConfig().customController()!=null){
-                            return GAdSdk.getConfig().customController().isCanUsePhoneState();
+                        if (BYAdSdk.getConfig().customController()!=null){
+                            return BYAdSdk.getConfig().customController().isCanUsePhoneState();
                         }
                         return super.isCanUsePhoneState();
                     }
@@ -89,16 +89,16 @@ public class CSJInitManager extends GCustomInitLoader {
                     @Override
                     public boolean alist() {
 
-                        if (GAdSdk.getConfig().customController()!=null){
-                            return GAdSdk.getConfig().customController().canReadInstalledPackages();
+                        if (BYAdSdk.getConfig().customController()!=null){
+                            return BYAdSdk.getConfig().customController().canReadInstalledPackages();
                         }
                         return super.alist();
                     }
 
                     @Override
                     public boolean isCanUseWifiState() {
-                        if (GAdSdk.getConfig().customController()!=null){
-                            return GAdSdk.getConfig().customController().isCanUseWifiState();
+                        if (BYAdSdk.getConfig().customController()!=null){
+                            return BYAdSdk.getConfig().customController().isCanUseWifiState();
                         }
                         return  super.isCanUseWifiState();
 
@@ -106,8 +106,8 @@ public class CSJInitManager extends GCustomInitLoader {
 
                     @Override
                     public boolean isCanUseWriteExternal() {
-                        if (GAdSdk.getConfig().customController()!=null){
-                            return GAdSdk.getConfig().customController().canUseStoragePermission();
+                        if (BYAdSdk.getConfig().customController()!=null){
+                            return BYAdSdk.getConfig().customController().canUseStoragePermission();
                         }
 
                         return super.isCanUseWriteExternal();
@@ -116,15 +116,15 @@ public class CSJInitManager extends GCustomInitLoader {
 
                     @Override
                     public boolean isCanUseAndroidId() {
-                        if (GAdSdk.getConfig().customController()!=null){
-                            return GAdSdk.getConfig().customController().isCanUseAndroidId();
+                        if (BYAdSdk.getConfig().customController()!=null){
+                            return BYAdSdk.getConfig().customController().isCanUseAndroidId();
                         }
                         return super.isCanUseAndroidId();
                     }
 
 
                 });
-        builder.debug(GAdSdk.getConfig().enableDebug()); //测试阶段打开，可以通过日志排查问题，上线时去除该调用
+        builder.debug(BYAdSdk.getConfig().enableDebug()); //测试阶段打开，可以通过日志排查问题，上线时去除该调用
         return builder.build();
     }
 
@@ -144,6 +144,6 @@ public class CSJInitManager extends GCustomInitLoader {
 
     @Override
     public String getPlatform() {
-        return GContanst.PLATFROM_CSJ;
+        return BYAdContanst.PLATFROM_CSJ;
     }
 }

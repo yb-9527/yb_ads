@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 
 import com.baidu.mobads.sdk.api.RewardVideoAd;
-import com.by.sdk.byad.GAdSlot;
+import com.by.sdk.byad.BYAdSlot;
 import com.by.sdk.byad.error.ErrorCodeUtil;
 import com.by.sdk.byad.utils.LogUtil;
 import com.by.sdk.ands.custom.bean.GCustomInfo;
@@ -24,7 +24,7 @@ public class BDRewardAdapter extends GCustomRewardAdapter {
     }
 
     @Override
-    public void loadCustomAd(Context context, GAdSlot adSlot, GCustomInfo info) {
+    public void loadCustomAd(Context context, BYAdSlot adSlot, GCustomInfo info) {
         mRewardVideoAd = new RewardVideoAd(context, info.getPid(), new RewardVideoAd.RewardVideoAdListener() {
             @Override
             public void onAdShow() {

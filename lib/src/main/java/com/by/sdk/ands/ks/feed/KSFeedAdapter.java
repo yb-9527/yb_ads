@@ -4,7 +4,7 @@ import android.content.Context;
 
 import androidx.annotation.Nullable;
 
-import com.by.sdk.byad.GAdSlot;
+import com.by.sdk.byad.BYAdSlot;
 import com.by.sdk.byad.utils.LogUtil;
 import com.by.sdk.ands.custom.bean.GCustomInfo;
 import com.by.sdk.ands.custom.feed.GCustomFeedAdapter;
@@ -20,7 +20,7 @@ import java.util.List;
 public class KSFeedAdapter extends GCustomFeedAdapter {
     private static final String TAG = "KSFeedAdapter";
     @Override
-    public void loadCustomAd(Context context, GAdSlot adSlot, GCustomInfo info) {
+    public void loadCustomAd(Context context, BYAdSlot adSlot, GCustomInfo info) {
         if (info.isExpress()){
             loadExpress(context,adSlot,info);
         }else {
@@ -28,7 +28,7 @@ public class KSFeedAdapter extends GCustomFeedAdapter {
         }
     }
 
-    private void loadNative(Context context, GAdSlot adSlot, GCustomInfo info) {
+    private void loadNative(Context context, BYAdSlot adSlot, GCustomInfo info) {
         KsScene scene = new KsScene.Builder(Long.parseLong(info.getPid()))
                 .adNum(adSlot.getFetchCount())
                 .build();
@@ -61,7 +61,7 @@ public class KSFeedAdapter extends GCustomFeedAdapter {
         });
     }
 
-    private void loadExpress(Context context, GAdSlot adSlot, GCustomInfo info) {
+    private void loadExpress(Context context, BYAdSlot adSlot, GCustomInfo info) {
         KsScene.Builder builder = new KsScene.Builder(Long.parseLong(info.getPid()))
                 .adNum(adSlot.getFetchCount());
 

@@ -5,7 +5,7 @@ import android.content.Context;
 
 import com.baidu.mobads.sdk.api.ExpressInterstitialAd;
 import com.baidu.mobads.sdk.api.ExpressInterstitialListener;
-import com.by.sdk.byad.GAdSlot;
+import com.by.sdk.byad.BYAdSlot;
 import com.by.sdk.byad.error.ErrorCodeUtil;
 import com.by.sdk.byad.utils.LogUtil;
 import com.by.sdk.ands.custom.bean.GCustomInfo;
@@ -23,7 +23,7 @@ public class BDIntertitialAdapter extends GCustomIntertitialAdapter {
     }
 
     @Override
-    public void loadCustomAd(Context context, GAdSlot adSlot, GCustomInfo info) {
+    public void loadCustomAd(Context context, BYAdSlot adSlot, GCustomInfo info) {
         interstitialAd = new ExpressInterstitialAd(context,info.getPid());
         interstitialAd.setLoadListener(new ExpressInterstitialListener() {
             @Override

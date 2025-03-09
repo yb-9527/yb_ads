@@ -5,7 +5,7 @@ import android.content.Context;
 
 import com.by.sdk.ad.intertitial.IntertitialAdListener;
 import com.by.sdk.ad.intertitial.IntertitialAdLoader;
-import com.by.sdk.byad.GAdSlot;
+import com.by.sdk.byad.BYAdSlot;
 import com.by.sdk.byad.error.ErrorCodeUtil;
 import com.by.sdk.byad.adpaster.BasePlatformLoader;
 import com.by.sdk.ands.custom.GCustomInitLoader;
@@ -57,7 +57,7 @@ public abstract class GCustomIntertitialAdapter extends BasePlatformLoader<Inter
     }
 
     public abstract void showAd(Activity activity);
-    public abstract void loadCustomAd(Context context, GAdSlot adSlot, GCustomInfo info);
+    public abstract void loadCustomAd(Context context, BYAdSlot adSlot, GCustomInfo info);
 
     protected void callLoadedSuccess(){
 

@@ -2,7 +2,7 @@ package com.by.sdk.byad;
 
 import androidx.annotation.NonNull;
 
-public class GAdSlot {
+public class BYAdSlot {
     private String pid;
     /**
      * 广告加载所需的Json数据
@@ -63,7 +63,7 @@ public class GAdSlot {
         return adJsonData;
     }
 
-    public GAdSlot(Builder builder) {
+    public BYAdSlot(Builder builder) {
         this.pid = builder.pid;
         this.width = builder.width;
         this.height = builder.height;
@@ -165,8 +165,8 @@ public class GAdSlot {
         /**
          * 构建MsAdSlot
          */
-        public GAdSlot build() {
-            return new GAdSlot(this);
+        public BYAdSlot build() {
+            return new BYAdSlot(this);
         }
     }
 }

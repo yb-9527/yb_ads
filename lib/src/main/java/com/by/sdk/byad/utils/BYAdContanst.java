@@ -1,6 +1,6 @@
 package com.by.sdk.byad.utils;
 
-public class GContanst {
+public class BYAdContanst {
 
     public static final String PLATFROM_CSJ = "CSJ";
     public static final String PLATFROM_GDT = "GDT";

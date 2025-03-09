@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import com.baidu.mobads.sdk.api.RequestParameters;
 import com.baidu.mobads.sdk.api.SplashAd;
 import com.baidu.mobads.sdk.api.SplashInteractionListener;
-import com.by.sdk.byad.GAdSlot;
+import com.by.sdk.byad.BYAdSlot;
 import com.by.sdk.byad.error.ErrorCodeUtil;
 import com.by.sdk.byad.utils.LogUtil;
 import com.by.sdk.ands.custom.bean.GCustomInfo;
@@ -25,7 +25,7 @@ public class BDSplashAdapter extends GCustomSplashAdapter {
     }
 
     @Override
-    public void loadCustomAd(Context context, GAdSlot adSlot, GCustomInfo info) {
+    public void loadCustomAd(Context context, BYAdSlot adSlot, GCustomInfo info) {
         RequestParameters.Builder parameters = new RequestParameters.Builder();
         parameters.addExtra(SplashAd.KEY_POPDIALOG_DOWNLOAD, "true");
 

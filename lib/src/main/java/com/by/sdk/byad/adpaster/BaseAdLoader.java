@@ -13,11 +13,11 @@ import com.by.sdk.ad.feed.FeedAdLoader;
 import com.by.sdk.ad.intertitial.IntertitialAdLoader;
 import com.by.sdk.ad.reward.RewardAdLoader;
 import com.by.sdk.ad.splash.SplashAdLoader;
-import com.by.sdk.byad.GAdSdk;
-import com.by.sdk.byad.GAdSlot;
-import com.by.sdk.byad.bean.GAdInfo;
+import com.by.sdk.byad.BYAdSdk;
+import com.by.sdk.byad.BYAdSlot;
+import com.by.sdk.byad.bean.BYAdInfo;
 import com.by.sdk.byad.error.ErrorCodeUtil;
-import com.by.sdk.byad.utils.GContanst;
+import com.by.sdk.byad.utils.BYAdContanst;
 import com.by.sdk.byad.utils.LogUtil;
 
 import java.lang.reflect.Type;
@@ -27,14 +27,14 @@ import java.util.List;
 public abstract class BaseAdLoader<T extends IAdLoadListener> {
     private static final String TAG = "BaseAdLoader";
     private Context context;
-    private final GAdSlot adSlot;
+    private final BYAdSlot adSlot;
     private T loaderListener;
     private volatile GAdLoadManager loadManager;
     private HashMap<String,Object> localMap;
     private static final long DEFAULT_TIMEOUT = 10000; // 默认超时时间10秒
     private Handler mHandler = new Handler();
 
-    public BaseAdLoader(Context context, GAdSlot adSlot, T loaderListener) {
+    public BaseAdLoader(Context context, BYAdSlot adSlot, T loaderListener) {
         this.context = context;
         this.adSlot = adSlot;
         this.loaderListener = loaderListener;
@@ -42,7 +42,7 @@ public abstract class BaseAdLoader<T extends IAdLoadListener> {
 
     protected synchronized void loadAd(){
         try {
-            if (GAdSdk.getConfig() == null){
+            if (BYAdSdk.getConfig() == null){
                 Log.e(TAG, "sdk init error ");
                 loadError(ErrorCodeUtil.INIT_ERR,"sdk init error");
                 return;
@@ -61,9 +61,9 @@ public abstract class BaseAdLoader<T extends IAdLoadListener> {
             }
             LogUtil.d(TAG,"start load ad,adType="+adType.value()+",data="+adSlot.getAdJsonData());
             startTimeout();
-            Type type = new TypeToken<List<GAdInfo>>(){}.getType();
+            Type type = new TypeToken<List<BYAdInfo>>(){}.getType();
             Gson gson = new Gson();
-            List<GAdInfo> list = gson.fromJson(adSlot.getAdJsonData(), type);
+            List<BYAdInfo> list = gson.fromJson(adSlot.getAdJsonData(), type);
 
             if (loadManager==null){
                 loadManager = new GAdLoadManager(context,BaseAdLoader.this);
@@ -107,7 +107,7 @@ public abstract class BaseAdLoader<T extends IAdLoadListener> {
     }
 
 
-    protected abstract IPlatformLoader createPlatformLoader(Context context, GAdInfo jAdInfo);
+    protected abstract IPlatformLoader createPlatformLoader(Context context, BYAdInfo jAdInfo);
 
     public Context getContext() {
         return context;
@@ -144,7 +144,7 @@ public abstract class BaseAdLoader<T extends IAdLoadListener> {
         }
     }
 
-    public GAdSlot getAdSlot(){
+    public BYAdSlot getAdSlot(){
         return adSlot;
     }
 
@@ -153,17 +153,17 @@ public abstract class BaseAdLoader<T extends IAdLoadListener> {
     }
 
 
-    private void handleCustomPlatform(AdType adType, List<GAdInfo> adList) {
+    private void handleCustomPlatform(AdType adType, List<BYAdInfo> adList) {
         try {
             for (int i = 0; i < adList.size(); i++) {
-                GAdInfo ad = adList.get(i);
-                if (GContanst.PLATFROM_CSJ.equals(ad.getPlatformName())){
+                BYAdInfo ad = adList.get(i);
+                if (BYAdContanst.PLATFROM_CSJ.equals(ad.getPlatformName())){
                     setCsjClass(adType,ad);
-                }else if (GContanst.PLATFROM_GDT.equals(ad.getPlatformName())){
+                }else if (BYAdContanst.PLATFROM_GDT.equals(ad.getPlatformName())){
                     setGdtClass(adType,ad);
-                }else if (GContanst.PLATFROM_BD.equals(ad.getPlatformName())){
+                }else if (BYAdContanst.PLATFROM_BD.equals(ad.getPlatformName())){
                     setBdClass(adType,ad);
-                }else if (GContanst.PLATFROM_KS.equals(ad.getPlatformName())){
+                }else if (BYAdContanst.PLATFROM_KS.equals(ad.getPlatformName())){
                     setKsClass(adType,ad);
                 }
             }
@@ -173,7 +173,7 @@ public abstract class BaseAdLoader<T extends IAdLoadListener> {
 
     }
 
-    private void setKsClass(AdType adType, GAdInfo ad) {
+    private void setKsClass(AdType adType, BYAdInfo ad) {
         try {
             ad.setInitCls("com.by.sdk.ands.ks.KSInitManager");
             switch (adType){
@@ -197,7 +197,7 @@ public abstract class BaseAdLoader<T extends IAdLoadListener> {
         }
     }
 
-    private void setBdClass(AdType adType, GAdInfo ad) {
+    private void setBdClass(AdType adType, BYAdInfo ad) {
         try {
             ad.setInitCls("com.by.sdk.ands.bd.BDInitManager");
             switch (adType){
@@ -222,7 +222,7 @@ public abstract class BaseAdLoader<T extends IAdLoadListener> {
         }
     }
 
-    private void setGdtClass(AdType adType, GAdInfo ad) {
+    private void setGdtClass(AdType adType, BYAdInfo ad) {
         try {
             ad.setInitCls("com.by.sdk.ands.gdt.GDTInitManager");
             switch (adType){
@@ -247,7 +247,7 @@ public abstract class BaseAdLoader<T extends IAdLoadListener> {
         }
     }
 
-    private void setCsjClass(AdType adType, GAdInfo ad) {
+    private void setCsjClass(AdType adType, BYAdInfo ad) {
         try {
             ad.setInitCls("com.by.sdk.ands.csj.CSJInitManager");
             switch (adType){

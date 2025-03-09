@@ -7,7 +7,7 @@ import com.baidu.mobads.sdk.api.BaiduNativeManager;
 import com.baidu.mobads.sdk.api.ExpressResponse;
 import com.baidu.mobads.sdk.api.NativeResponse;
 import com.baidu.mobads.sdk.api.RequestParameters;
-import com.by.sdk.byad.GAdSlot;
+import com.by.sdk.byad.BYAdSlot;
 import com.by.sdk.byad.utils.LogUtil;
 import com.by.sdk.ands.custom.bean.GCustomInfo;
 import com.by.sdk.ands.custom.feed.GCustomFeedAdapter;
@@ -18,7 +18,7 @@ import java.util.List;
 public class BDFeedAdapter extends GCustomFeedAdapter {
     private static final String TAG = "BDFeedAdapter";
     @Override
-    public void loadCustomAd(Context context, GAdSlot adSlot, GCustomInfo info) {
+    public void loadCustomAd(Context context, BYAdSlot adSlot, GCustomInfo info) {
         if (info.isExpress()){
             loadExpress(context,adSlot,info);
         }else {
@@ -26,7 +26,7 @@ public class BDFeedAdapter extends GCustomFeedAdapter {
         }
     }
 
-    private void loadNative(Context context, GAdSlot adSlot, GCustomInfo info) {
+    private void loadNative(Context context, BYAdSlot adSlot, GCustomInfo info) {
         RequestParameters requestParameters = new RequestParameters.Builder()
 //                .downloadAppConfirmPolicy(RequestParameters.DOWNLOAD_APP_CONFIRM_NEVER)
                 .build();
@@ -79,7 +79,7 @@ public class BDFeedAdapter extends GCustomFeedAdapter {
         });
     }
 
-    private void loadExpress(Context context, GAdSlot adSlot, GCustomInfo info) {
+    private void loadExpress(Context context, BYAdSlot adSlot, GCustomInfo info) {
         DisplayMetrics dm = context.getResources().getDisplayMetrics();
         int width = (int) (dm.widthPixels / dm.density);
         int height = 0;

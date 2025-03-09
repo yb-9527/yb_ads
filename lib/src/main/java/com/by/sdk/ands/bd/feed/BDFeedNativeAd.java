@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import com.baidu.mobads.sdk.api.NativeResponse;
 import com.baidu.mobads.sdk.api.XNativeView;
-import com.by.sdk.byad.utils.GContanst;
+import com.by.sdk.byad.utils.BYAdContanst;
 import com.by.sdk.ands.custom.feed.GCustomFeedNativeAd;
 
 import java.util.ArrayList;
@@ -76,14 +76,14 @@ public class BDFeedNativeAd extends GCustomFeedNativeAd {
     }
 
     private int getInteractionType(NativeResponse nativeResponse) {
-        int type = GContanst.INTERACTION_TYPE_NORMAL;
+        int type = BYAdContanst.INTERACTION_TYPE_NORMAL;
         switch (nativeResponse.getAdActionType()){
             case NativeResponse.ACTION_TYPE_APP_DOWNLOAD:
-                type =  GContanst.INTERACTION_TYPE_DOWNLOAD_APP;
+                type =  BYAdContanst.INTERACTION_TYPE_DOWNLOAD_APP;
                 break;
             case NativeResponse.ACTION_TYPE_DEEP_LINK:
             case NativeResponse.ACTION_TYPE_LANDING_PAGE:
-                type = GContanst.INTERACTION_TYPE_NORMAL;
+                type = BYAdContanst.INTERACTION_TYPE_NORMAL;
                 break;
         }
         return type;
@@ -92,17 +92,17 @@ public class BDFeedNativeAd extends GCustomFeedNativeAd {
     private int getAdPatternType(NativeResponse nativeResponse) {
         switch (nativeResponse.getMaterialType()) {
             case VIDEO:
-                return GContanst.NATIVE_VIDEO;
+                return BYAdContanst.NATIVE_VIDEO;
             case NORMAL:
                 if (nativeResponse.getMultiPicUrls() != null) {
-                    return GContanst.NATIVE_GROUP_IMG;
+                    return BYAdContanst.NATIVE_GROUP_IMG;
                 } else if ((nativeResponse.getIconUrl() != null ? nativeResponse.getIconUrl() : "").equals(nativeResponse.getImageUrl())) {
-                    return GContanst.NATIVE_SMALL_IMG;
+                    return BYAdContanst.NATIVE_SMALL_IMG;
                 } else {
-                    return GContanst.NATIVE_LARGE_IMG;
+                    return BYAdContanst.NATIVE_LARGE_IMG;
                 }
             default:
-                return  GContanst.NATIVE_LARGE_IMG;
+                return  BYAdContanst.NATIVE_LARGE_IMG;
         }
     }
 

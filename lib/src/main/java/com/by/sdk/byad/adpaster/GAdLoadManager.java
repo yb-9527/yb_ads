@@ -3,7 +3,7 @@ package com.by.sdk.byad.adpaster;
 import android.content.Context;
 import android.text.TextUtils;
 
-import com.by.sdk.byad.bean.GAdInfo;
+import com.by.sdk.byad.bean.BYAdInfo;
 import com.by.sdk.byad.bean.GroupBean;
 import com.by.sdk.byad.error.ErrorCodeUtil;
 import com.by.sdk.byad.utils.MyThreadPools;
@@ -39,8 +39,8 @@ public class GAdLoadManager {
         this.adLoader = adLoader;
     }
 
-    public synchronized void filterAd(List<GAdInfo> adList){
-        List<GAdInfo> groupList = getGroupList(adList);
+    public synchronized void filterAd(List<BYAdInfo> adList){
+        List<BYAdInfo> groupList = getGroupList(adList);
 
         if (!groupList.isEmpty()){
             startLoadAd(groupList);
@@ -49,10 +49,10 @@ public class GAdLoadManager {
 
 
 
-    private synchronized void startLoadAd(List<GAdInfo> sortedList) {
+    private synchronized void startLoadAd(List<BYAdInfo> sortedList) {
         // 先将adInfoList转换为GroupBean列表
 
-        for (GAdInfo adInfo : sortedList) {
+        for (BYAdInfo adInfo : sortedList) {
             GroupBean groupBean = new GroupBean();
             groupBean.setAdInfo(adInfo);
             groupBeanList.add(groupBean);
@@ -240,17 +240,17 @@ public class GAdLoadManager {
         }
     }
 
-    public synchronized List<GAdInfo> getGroupList(List<GAdInfo> adList){
+    public synchronized List<BYAdInfo> getGroupList(List<BYAdInfo> adList){
         if (adList==null || adList.isEmpty()){
             return new ArrayList<>();
         }
         try {
 
-            List<GAdInfo> gAdInfos = new ArrayList<>();
+            List<BYAdInfo> gAdInfos = new ArrayList<>();
             //1.按优先级分组，1-100，100最高
             // 过滤掉appId或pid为空的数据
             for (int i = 0; i < adList.size(); i++) {
-                GAdInfo ad = adList.get(i);
+                BYAdInfo ad = adList.get(i);
                 if (ad==null){
                     continue;
                 }

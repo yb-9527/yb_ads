@@ -8,7 +8,7 @@ import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.TTAdNative;
 import com.bytedance.sdk.openadsdk.TTAdSdk;
 import com.bytedance.sdk.openadsdk.TTRewardVideoAd;
-import com.by.sdk.byad.GAdSlot;
+import com.by.sdk.byad.BYAdSlot;
 import com.by.sdk.byad.utils.LogUtil;
 import com.by.sdk.ands.custom.bean.GCustomInfo;
 import com.by.sdk.ands.custom.reward.GCustomRewardAdapter;
@@ -26,7 +26,7 @@ public class CSJRewardAdapter extends GCustomRewardAdapter {
     }
 
     @Override
-    public void loadCustomAd(Context context, GAdSlot adSlot, GCustomInfo info) {
+    public void loadCustomAd(Context context, BYAdSlot adSlot, GCustomInfo info) {
         AdSlot csjAdSlot = new AdSlot.Builder()
                 .setCodeId(info.getPid())
                 .setSupportDeepLink(true)

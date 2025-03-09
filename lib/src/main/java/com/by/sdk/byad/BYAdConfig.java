@@ -1,10 +1,8 @@
 package com.by.sdk.byad;
 
-import android.location.Location;
-
 import androidx.annotation.NonNull;
 
-public class GAdConfig {
+public class BYAdConfig {
     public CustomController customController;
     private String appId;
     private boolean enableDebug;
@@ -21,7 +19,7 @@ public class GAdConfig {
         return customController;
     }
 
-    public GAdConfig(Builder builder) {
+    public BYAdConfig(Builder builder) {
         this.appId = builder.appId;
         this.enableDebug = builder.enableDebug;
         this.customController = builder.customController;
@@ -99,8 +97,8 @@ public class GAdConfig {
             this.customController = arg1;
             return this;
         }
-        public GAdConfig build(){
-            return new GAdConfig(this);
+        public BYAdConfig build(){
+            return new BYAdConfig(this);
         }
     }
 }

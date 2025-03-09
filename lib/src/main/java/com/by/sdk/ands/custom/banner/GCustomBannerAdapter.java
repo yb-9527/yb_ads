@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 
 import com.by.sdk.ad.banner.BannerAdListener;
 import com.by.sdk.ad.banner.BannerAdLoader;
-import com.by.sdk.byad.GAdSlot;
+import com.by.sdk.byad.BYAdSlot;
 import com.by.sdk.byad.error.ErrorCodeUtil;
 import com.by.sdk.byad.utils.SDKHandler;
 import com.by.sdk.byad.adpaster.BasePlatformLoader;
@@ -57,7 +57,7 @@ public abstract class GCustomBannerAdapter extends BasePlatformLoader<BannerAdLo
 
 
     public abstract void showAd(ViewGroup container);
-    public abstract void loadCustomAd(Context context, GAdSlot adSlot, GCustomInfo info);
+    public abstract void loadCustomAd(Context context, BYAdSlot adSlot, GCustomInfo info);
 
 
     protected void callLoadedSuccess(){

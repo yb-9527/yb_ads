@@ -3,7 +3,7 @@ package com.by.sdk.ands.gdt.reward;
 import android.app.Activity;
 import android.content.Context;
 
-import com.by.sdk.byad.GAdSlot;
+import com.by.sdk.byad.BYAdSlot;
 import com.by.sdk.byad.utils.LogUtil;
 import com.by.sdk.ands.custom.bean.GCustomInfo;
 import com.by.sdk.ands.custom.reward.GCustomRewardAdapter;
@@ -26,7 +26,7 @@ public class GDTRewardAdapter extends GCustomRewardAdapter {
     }
 
     @Override
-    public void loadCustomAd(Context context, GAdSlot adSlot, GCustomInfo info) {
+    public void loadCustomAd(Context context, BYAdSlot adSlot, GCustomInfo info) {
         rewardVideoAd = new RewardVideoAD(adLoader.getContext(), info.getPid(), new RewardVideoADListener() {
             @Override
             public void onADLoad() {

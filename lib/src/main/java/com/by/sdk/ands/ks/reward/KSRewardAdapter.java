@@ -5,7 +5,7 @@ import android.content.Context;
 
 import androidx.annotation.Nullable;
 
-import com.by.sdk.byad.GAdSlot;
+import com.by.sdk.byad.BYAdSlot;
 import com.by.sdk.byad.error.ErrorCodeUtil;
 import com.by.sdk.ands.custom.bean.GCustomInfo;
 import com.by.sdk.ands.custom.reward.GCustomRewardAdapter;
@@ -37,7 +37,7 @@ public class KSRewardAdapter extends GCustomRewardAdapter {
     }
 
     @Override
-    public void loadCustomAd(Context context, GAdSlot adSlot, GCustomInfo info) {
+    public void loadCustomAd(Context context, BYAdSlot adSlot, GCustomInfo info) {
         isMute = adSlot.getIsMute();
         KsScene scene = new KsScene.Builder(Long.parseLong(info.getPid())).build();
 //        KsScene scene = new KsScene.Builder(90009001).build();

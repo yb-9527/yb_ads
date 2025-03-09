@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import com.by.sdk.ad.splash.SplashAdListener;
 import com.by.sdk.ad.splash.SplashAdLoader;
 import com.by.sdk.ad.splash.SplashInteractionListener;
-import com.by.sdk.byad.GAdSlot;
+import com.by.sdk.byad.BYAdSlot;
 import com.by.sdk.byad.error.ErrorCodeUtil;
 import com.by.sdk.byad.adpaster.BasePlatformLoader;
 import com.by.sdk.ands.custom.GCustomInitLoader;
@@ -51,7 +51,7 @@ public abstract class GCustomSplashAdapter extends BasePlatformLoader<SplashAdLo
     }
 
     public abstract void showAd(ViewGroup container);
-    public abstract void loadCustomAd(Context context, GAdSlot adSlot, GCustomInfo info);
+    public abstract void loadCustomAd(Context context, BYAdSlot adSlot, GCustomInfo info);
 
 
     protected void callLoadedSuccess(){

@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.by.sdk.ad.feed.FeedAd;
 import com.by.sdk.ad.feed.FeedAdEventListener;
 import com.by.sdk.ad.feed.FeedAdLoader;
-import com.by.sdk.byad.GAdSlot;
+import com.by.sdk.byad.BYAdSlot;
 import com.by.sdk.byad.error.ErrorCodeUtil;
 import com.by.sdk.byad.adpaster.BasePlatformLoader;
 import com.by.sdk.ands.custom.GCustomInitLoader;
@@ -50,7 +50,7 @@ public abstract class GCustomFeedAdapter extends BasePlatformLoader<FeedAdLoader
 
     }
 
-    public abstract void loadCustomAd(Context context, GAdSlot adSlot, GCustomInfo info);
+    public abstract void loadCustomAd(Context context, BYAdSlot adSlot, GCustomInfo info);
 
     /**
      * 是否是模板，true为模板，false为自渲染

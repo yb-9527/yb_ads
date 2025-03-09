@@ -11,7 +11,7 @@ import com.bytedance.sdk.openadsdk.TTAdConstant;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.bytedance.sdk.openadsdk.TTImage;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.by.sdk.byad.utils.GContanst;
+import com.by.sdk.byad.utils.BYAdContanst;
 import com.by.sdk.byad.utils.LogUtil;
 import com.by.sdk.ands.custom.feed.GCustomFeedNativeAd;
 
@@ -103,35 +103,35 @@ public class CSJFeedNativeAd extends GCustomFeedNativeAd {
     }
 
     private static int getInteractionType(TTFeedAd ttFeedAd) {
-        int interactionType=GContanst.INTERACTION_TYPE_NORMAL;
+        int interactionType= BYAdContanst.INTERACTION_TYPE_NORMAL;
         switch (ttFeedAd.getInteractionType()){
             case TTAdConstant.INTERACTION_TYPE_BROWSER:
             case TTAdConstant.INTERACTION_TYPE_LANDING_PAGE:
             case TTAdConstant.INTERACTION_TYPE_DIAL:
-                interactionType = GContanst.INTERACTION_TYPE_NORMAL;
+                interactionType = BYAdContanst.INTERACTION_TYPE_NORMAL;
                 break;
             case TTAdConstant.INTERACTION_TYPE_DOWNLOAD:
-                interactionType = GContanst.INTERACTION_TYPE_DOWNLOAD_APP;
+                interactionType = BYAdContanst.INTERACTION_TYPE_DOWNLOAD_APP;
                 break;
         }
         return interactionType;
     }
 
     private static int getAdPatternType(TTFeedAd ttFeedAd) {
-        int adPatternType = GContanst.NATIVE_LARGE_IMG;
+        int adPatternType = BYAdContanst.NATIVE_LARGE_IMG;
         switch (ttFeedAd.getImageMode()) {
             case TTAdConstant.IMAGE_MODE_VIDEO:
             case TTAdConstant.IMAGE_MODE_VIDEO_VERTICAL:
-                adPatternType = GContanst.NATIVE_VIDEO;
+                adPatternType = BYAdContanst.NATIVE_VIDEO;
                 break;
             case TTAdConstant.IMAGE_MODE_LARGE_IMG:
-                adPatternType = GContanst.NATIVE_LARGE_IMG;
+                adPatternType = BYAdContanst.NATIVE_LARGE_IMG;
                 break;
             case TTAdConstant.IMAGE_MODE_SMALL_IMG:
-                adPatternType = GContanst.NATIVE_SMALL_IMG;
+                adPatternType = BYAdContanst.NATIVE_SMALL_IMG;
                 break;
             case TTAdConstant.IMAGE_MODE_GROUP_IMG:
-                adPatternType = GContanst.NATIVE_GROUP_IMG;
+                adPatternType = BYAdContanst.NATIVE_GROUP_IMG;
                 break;
         }
         return adPatternType;

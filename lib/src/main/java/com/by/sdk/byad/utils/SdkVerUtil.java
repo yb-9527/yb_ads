@@ -1,9 +1,5 @@
 package com.by.sdk.byad.utils;
 
-import android.content.pm.PackageManager;
-
-import com.by.sdk.byad.GAdSdk;
-
 public class SdkVerUtil {
     /**
      * 获取穿山甲SDK版本号

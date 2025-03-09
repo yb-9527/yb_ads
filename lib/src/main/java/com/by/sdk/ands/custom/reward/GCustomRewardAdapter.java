@@ -6,7 +6,7 @@ import android.content.Context;
 import com.by.sdk.ad.reward.RewardAdListener;
 import com.by.sdk.ad.reward.RewardAdLoader;
 import com.by.sdk.ad.reward.RewardInteractionListener;
-import com.by.sdk.byad.GAdSlot;
+import com.by.sdk.byad.BYAdSlot;
 import com.by.sdk.byad.error.ErrorCodeUtil;
 import com.by.sdk.byad.adpaster.BasePlatformLoader;
 import com.by.sdk.ands.custom.GCustomInitLoader;
@@ -59,7 +59,7 @@ public abstract class GCustomRewardAdapter extends BasePlatformLoader<RewardAdLo
     }
 
     public abstract void showAd(Activity activity);
-    public abstract void loadCustomAd(Context context, GAdSlot adSlot, GCustomInfo info);
+    public abstract void loadCustomAd(Context context, BYAdSlot adSlot, GCustomInfo info);
 
     protected void callLoadedSuccess(){
         if (getConCurrentLoadListener()!=null){

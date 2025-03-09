@@ -1,9 +1,7 @@
 package com.by.sdk.ands.ks;
 
-import android.location.Location;
-
-import com.by.sdk.byad.GAdSdk;
-import com.by.sdk.byad.utils.GContanst;
+import com.by.sdk.byad.BYAdSdk;
+import com.by.sdk.byad.utils.BYAdContanst;
 import com.by.sdk.ands.custom.GCustomInitLoader;
 import com.kwad.sdk.api.KsAdSDK;
 import com.kwad.sdk.api.KsCustomController;
@@ -14,7 +12,7 @@ import java.util.Map;
 public class KSInitManager extends GCustomInitLoader {
     @Override
     protected void initADN(String appId, String appKey, Map<String, Object> map) {
-        if (GAdSdk.getConfig().customController()!=null && GAdSdk.getConfig().customController().isCanUsePersonalRecommend()){
+        if (BYAdSdk.getConfig().customController()!=null && BYAdSdk.getConfig().customController().isCanUsePersonalRecommend()){
             KsAdSDK.setPersonalRecommend(true);
         }else {
             KsAdSDK.setPersonalRecommend(false);
@@ -24,8 +22,8 @@ public class KSInitManager extends GCustomInitLoader {
                 .customController(new KsCustomController() {
                     @Override
                     public boolean canReadLocation() {
-                        if (GAdSdk.getConfig().customController()!=null){
-                            return GAdSdk.getConfig().customController().isCanUseLocation();
+                        if (BYAdSdk.getConfig().customController()!=null){
+                            return BYAdSdk.getConfig().customController().isCanUseLocation();
                         }
                         return super.canReadLocation();
                     }
@@ -34,8 +32,8 @@ public class KSInitManager extends GCustomInitLoader {
 
                     @Override
                     public boolean canUsePhoneState() {
-                        if (GAdSdk.getConfig().customController()!=null){
-                            return GAdSdk.getConfig().customController().isCanUsePhoneState();
+                        if (BYAdSdk.getConfig().customController()!=null){
+                            return BYAdSdk.getConfig().customController().isCanUsePhoneState();
                         }
                         return super.canUsePhoneState();
                     }
@@ -43,8 +41,8 @@ public class KSInitManager extends GCustomInitLoader {
 
                     @Override
                     public String getAndroidId() {
-                        if (GAdSdk.getConfig().customController()!=null){
-                            return GAdSdk.getConfig().customController().getAndroidId();
+                        if (BYAdSdk.getConfig().customController()!=null){
+                            return BYAdSdk.getConfig().customController().getAndroidId();
                         }
                         return super.getAndroidId();
                     }
@@ -56,8 +54,8 @@ public class KSInitManager extends GCustomInitLoader {
 
                     @Override
                     public boolean canUseMacAddress() {
-                        if (GAdSdk.getConfig().customController()!=null){
-                            return GAdSdk.getConfig().customController().canUseMacAddress();
+                        if (BYAdSdk.getConfig().customController()!=null){
+                            return BYAdSdk.getConfig().customController().canUseMacAddress();
                         }
                         return super.canUseMacAddress();
                     }
@@ -66,32 +64,32 @@ public class KSInitManager extends GCustomInitLoader {
 
                     @Override
                     public boolean canUseNetworkState() {
-                        if (GAdSdk.getConfig().customController()!=null){
-                            return GAdSdk.getConfig().customController().canUseNetworkState();
+                        if (BYAdSdk.getConfig().customController()!=null){
+                            return BYAdSdk.getConfig().customController().canUseNetworkState();
                         }
                         return super.canUseNetworkState();
                     }
 
                     @Override
                     public boolean canUseStoragePermission() {
-                        if (GAdSdk.getConfig().customController()!=null){
-                            return GAdSdk.getConfig().customController().canUseStoragePermission();
+                        if (BYAdSdk.getConfig().customController()!=null){
+                            return BYAdSdk.getConfig().customController().canUseStoragePermission();
                         }
                         return super.canUseStoragePermission();
                     }
 
                     @Override
                     public boolean canReadInstalledPackages() {
-                        if (GAdSdk.getConfig().customController()!=null){
-                            return GAdSdk.getConfig().customController().canReadInstalledPackages();
+                        if (BYAdSdk.getConfig().customController()!=null){
+                            return BYAdSdk.getConfig().customController().canReadInstalledPackages();
                         }
                         return super.canReadInstalledPackages();
                     }
                 })
-                .debug(GAdSdk.getConfig().enableDebug());
+                .debug(BYAdSdk.getConfig().enableDebug());
 
         try {
-            KsAdSDK.init(GAdSdk.getContext(), builder.build());
+            KsAdSDK.init(BYAdSdk.getContext(), builder.build());
         } catch (Exception e) {
             e.printStackTrace();
             callInitFail();
@@ -109,6 +107,6 @@ public class KSInitManager extends GCustomInitLoader {
 
     @Override
     public String getPlatform() {
-        return GContanst.PLATFROM_KS;
+        return BYAdContanst.PLATFROM_KS;
     }
 }

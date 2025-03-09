@@ -3,7 +3,7 @@ package com.by.sdk.byad.adpaster;
 import android.content.Context;
 import android.text.TextUtils;
 
-import com.by.sdk.byad.bean.GAdInfo;
+import com.by.sdk.byad.bean.BYAdInfo;
 import com.by.sdk.ands.custom.GCustomFactory;
 import com.by.sdk.ands.custom.GCustomInitLoader;
 
@@ -15,12 +15,12 @@ public abstract class BasePlatformLoader<T extends BaseAdLoader,K extends IAdLoa
     private Context context;
     protected T adLoader;
     protected IAdLoadListener loadListener;
-    private  GAdInfo gAdInfo;
+    private BYAdInfo gAdInfo;
     private IConCurrentLoadListener currentLoadListener;
 
 
     @Override
-    public void init(T adLoader, GAdInfo gAdInfo) {
+    public void init(T adLoader, BYAdInfo gAdInfo) {
         this.context = adLoader.getContext();
         this.adLoader = adLoader;
         this.loadListener = adLoader.getLoaderListener();
@@ -48,7 +48,7 @@ public abstract class BasePlatformLoader<T extends BaseAdLoader,K extends IAdLoa
     }
 
     @Override
-    public GAdInfo getAdInfo() {
+    public BYAdInfo getAdInfo() {
         return gAdInfo;
     }
 

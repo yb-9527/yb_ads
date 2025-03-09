@@ -3,7 +3,7 @@ package com.by.sdk.ands.gdt.splash;
 import android.content.Context;
 import android.view.ViewGroup;
 
-import com.by.sdk.byad.GAdSlot;
+import com.by.sdk.byad.BYAdSlot;
 import com.by.sdk.byad.error.ErrorCodeUtil;
 import com.by.sdk.byad.utils.LogUtil;
 import com.by.sdk.ands.custom.bean.GCustomInfo;
@@ -15,7 +15,7 @@ import com.qq.e.comm.util.AdError;
 public class GDTSplashAdapter extends GCustomSplashAdapter {
     private static final String TAG = "GDTSplashAdapter";
     private SplashAD splashAD;
-    private GAdSlot adSlot;
+    private BYAdSlot adSlot;
 
     @Override
     public void showAd(ViewGroup container) {
@@ -35,7 +35,7 @@ public class GDTSplashAdapter extends GCustomSplashAdapter {
     }
 
     @Override
-    public void loadCustomAd(Context context, GAdSlot adSlot, GCustomInfo info) {
+    public void loadCustomAd(Context context, BYAdSlot adSlot, GCustomInfo info) {
         this.adSlot = adSlot;
         splashAD = new SplashAD(context, info.getPid(), new SplashADListener() {
             @Override

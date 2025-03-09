@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
-import com.by.sdk.byad.GAdSlot;
+import com.by.sdk.byad.BYAdSlot;
 import com.by.sdk.byad.error.ErrorCodeUtil;
 import com.by.sdk.byad.utils.LogUtil;
 import com.by.sdk.ands.custom.bean.GCustomInfo;
@@ -26,7 +26,7 @@ public class GDTFeedAdapter extends GCustomFeedAdapter {
     private List<GDTFeedExpressAd> expressAds;
 
     @Override
-    public void loadCustomAd(Context context, GAdSlot adSlot, GCustomInfo info) {
+    public void loadCustomAd(Context context, BYAdSlot adSlot, GCustomInfo info) {
         if (info.isExpress()){
             loadExpress(context,adSlot,info);
         }else {
@@ -34,7 +34,7 @@ public class GDTFeedAdapter extends GCustomFeedAdapter {
         }
     }
 
-    private void loadNative(Context context, GAdSlot adSlot, GCustomInfo info) {
+    private void loadNative(Context context, BYAdSlot adSlot, GCustomInfo info) {
         NativeUnifiedAD nativeUnifiedAD = new NativeUnifiedAD(context, info.getPid(), new NativeADUnifiedListener() {
             @Override
             public void onADLoaded(List<NativeUnifiedADData> list) {
@@ -66,7 +66,7 @@ public class GDTFeedAdapter extends GCustomFeedAdapter {
         nativeUnifiedAD.loadData(adSlot.getFetchCount());
     }
 
-    private void loadExpress(Context context, GAdSlot adSlot, GCustomInfo info) {
+    private void loadExpress(Context context, BYAdSlot adSlot, GCustomInfo info) {
         DisplayMetrics dm = context.getResources().getDisplayMetrics();
         int width = ADSize.FULL_WIDTH;
         int height = ADSize.AUTO_HEIGHT;

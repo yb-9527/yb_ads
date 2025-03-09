@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
 
-import com.by.sdk.byad.GAdSlot;
-import com.by.sdk.byad.bean.GAdInfo;
+import com.by.sdk.byad.BYAdSlot;
+import com.by.sdk.byad.bean.BYAdInfo;
 import com.by.sdk.byad.utils.LogUtil;
 import com.by.sdk.byad.utils.PlatfromFactory;
 import com.by.sdk.byad.adpaster.BaseAdLoader;
@@ -13,12 +13,12 @@ import com.by.sdk.byad.adpaster.IPlatformLoader;
 
 public class IntertitialAdLoader extends BaseAdLoader<IntertitialAdListener> {
     private static final String TAG = "IntertitialAdLoader";
-    public IntertitialAdLoader(Activity context, GAdSlot adSlot, IntertitialAdListener loaderListener) {
+    public IntertitialAdLoader(Activity context, BYAdSlot adSlot, IntertitialAdListener loaderListener) {
         super(context,adSlot, loaderListener);
     }
 
     @Override
-    protected IPlatformLoader<IntertitialAdLoader> createPlatformLoader(Context context, GAdInfo jAdInfo) {
+    protected IPlatformLoader<IntertitialAdLoader> createPlatformLoader(Context context, BYAdInfo jAdInfo) {
         try {
             if (jAdInfo!=null){
                 if (!TextUtils.isEmpty(jAdInfo.getCls())){

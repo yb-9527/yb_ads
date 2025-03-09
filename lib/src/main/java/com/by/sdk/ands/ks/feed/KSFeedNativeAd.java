@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.by.sdk.byad.utils.GContanst;
+import com.by.sdk.byad.utils.BYAdContanst;
 import com.by.sdk.ands.custom.feed.GCustomFeedNativeAd;
 import com.kwad.sdk.api.KsAdVideoPlayConfig;
 import com.kwad.sdk.api.KsImage;
@@ -113,31 +113,31 @@ public class KSFeedNativeAd extends GCustomFeedNativeAd {
     private int getInteractionType(KsNativeAd ksNativeAd) {
         try {
             if (ksNativeAd.getInteractionType() == InteractionType.DOWNLOAD) {
-                return GContanst.INTERACTION_TYPE_DOWNLOAD_APP;
+                return BYAdContanst.INTERACTION_TYPE_DOWNLOAD_APP;
             }
         } catch(Throwable e) {
             e.printStackTrace();
         }
         // H5 和 UNKNOWN 都是 NORMAL
-        return GContanst.INTERACTION_TYPE_NORMAL;
+        return BYAdContanst.INTERACTION_TYPE_NORMAL;
     }
 
     private int getAdPatternType(KsNativeAd ksNativeAd) {
         try {
             switch (ksNativeAd.getMaterialType()) {
                 case MaterialType.SINGLE_IMG:
-                    return GContanst.NATIVE_LARGE_IMG;
+                    return BYAdContanst.NATIVE_LARGE_IMG;
                 case MaterialType.GROUP_IMG:
-                    return GContanst.NATIVE_GROUP_IMG;
+                    return BYAdContanst.NATIVE_GROUP_IMG;
                 case MaterialType.VIDEO:
-                    return GContanst.NATIVE_VIDEO;
+                    return BYAdContanst.NATIVE_VIDEO;
                 default:
-                    return GContanst.NATIVE_LARGE_IMG;
+                    return BYAdContanst.NATIVE_LARGE_IMG;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return GContanst.NATIVE_LARGE_IMG;
+        return BYAdContanst.NATIVE_LARGE_IMG;
     }
 
     private List<String> getImgList(KsNativeAd ksNativeAd) {

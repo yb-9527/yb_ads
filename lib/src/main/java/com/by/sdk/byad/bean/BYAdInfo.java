@@ -1,6 +1,6 @@
 package com.by.sdk.byad.bean;
 
-public class GAdInfo {
+public class BYAdInfo {
     /**
      * 目前只支持GDT、CSJ、BD、KS
      */
