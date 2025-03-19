@@ -5,8 +5,7 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import com.by.sdk.byad.utils.JsonUtil;
 import com.by.sdk.ad.AdType;
 import com.by.sdk.ad.banner.BannerAdLoader;
 import com.by.sdk.ad.feed.FeedAdLoader;
@@ -19,6 +18,10 @@ import com.by.sdk.byad.bean.BYAdInfo;
 import com.by.sdk.byad.error.ErrorCodeUtil;
 import com.by.sdk.byad.utils.BYAdContanst;
 import com.by.sdk.byad.utils.LogUtil;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -61,9 +64,36 @@ public abstract class BaseAdLoader<T extends IAdLoadListener> {
             }
             LogUtil.d(TAG,"start load ad,adType="+adType.value()+",data="+adSlot.getAdJsonData());
             startTimeout();
-            Type type = new TypeToken<List<BYAdInfo>>(){}.getType();
-            Gson gson = new Gson();
-            List<BYAdInfo> list = gson.fromJson(adSlot.getAdJsonData(), type);
+//            Type type = new TypeToken<List<BYAdInfo>>(){}.getType();
+//            Gson gson = new Gson();
+//            List<BYAdInfo> list = gson.fromJson(adSlot.getAdJsonData(), type);
+
+            // 1. 解析你的广告数据
+            String jsonData = adSlot.getAdJsonData();
+            JSONArray jsonArray = JsonUtil.parseArray(jsonData);
+
+            // 2. 定义转换器
+            JsonUtil.JsonConverter<BYAdInfo> converter = new JsonUtil.JsonConverter<BYAdInfo>() {
+                @Override
+                public BYAdInfo convert(JSONObject jsonObject) throws JSONException {
+                    BYAdInfo adInfo = new BYAdInfo();
+                    // 假设BYAdInfo有这些字段
+                    adInfo.setAppId(JsonUtil.getString(jsonObject, "platformName", ""));
+                    adInfo.setCls(JsonUtil.getString(jsonObject, "appId", ""));
+                    adInfo.setAppKey(JsonUtil.getString(jsonObject, "appKey", ""));
+                    adInfo.setPid(JsonUtil.getString(jsonObject, "pid", ""));
+                    adInfo.setPriority(JsonUtil.getInt(jsonObject, "priority", 0));
+                    adInfo.setInitCls(JsonUtil.getString(jsonObject, "initCls", ""));
+                    adInfo.setCls(JsonUtil.getString(jsonObject, "cls", ""));
+                    adInfo.setCustom_ext(JsonUtil.getString(jsonObject, "custom_ext", ""));
+                    adInfo.setFeedType(JsonUtil.getInt(jsonObject, "feedType", 2));
+
+                    return adInfo;
+                }
+            };
+
+            // 3. 转换为List
+            List<BYAdInfo> list = JsonUtil.jsonArrayToList(jsonArray, converter);
 
             if (loadManager==null){
                 loadManager = new GAdLoadManager(context,BaseAdLoader.this);

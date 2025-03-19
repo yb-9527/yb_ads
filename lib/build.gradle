@@ -60,5 +60,4 @@ dependencies {
     compileOnly(name: 'Baidu_MobAds_SDK-release_v9.371', ext: 'aar') // 百度
     compileOnly(name: 'ks_adsdk-ad-3.3.72-publishRelease', ext: 'aar') // 快手
 
-    compileOnly 'com.google.code.gson:gson:2.8.5'
 }
