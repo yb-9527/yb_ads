@@ -186,4 +186,4 @@ gdt_file_path.xml
 * [Banner](https://github.com/yb-9527/yb_ads/wiki/Banner)
 
 # 七、技术支持
-![img.png](img.png)
+![img.png](img.png =300*300)
