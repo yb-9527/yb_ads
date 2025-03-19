@@ -186,4 +186,4 @@ gdt_file_path.xml
 * [Banner](https://github.com/yb-9527/yb_ads/wiki/Banner)
 
 # 七、技术支持
-![img.png](https://github.com/yb-9527/yb_ads/blob/master/img/5a76b3c30e45b78ff5a39901ffd369f.jpg?raw=true =300x200)
+![wx](https://github.com/user-attachments/assets/b207f95e-9a6d-4c78-9c13-782647c2b605)
