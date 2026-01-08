@@ -83,15 +83,7 @@ public class BDIntertitialAdapter extends GCustomIntertitialAdapter {
 
             }
 
-            @Override
-            public void onVideoDownloadSuccess() {
 
-            }
-
-            @Override
-            public void onVideoDownloadFailed() {
-
-            }
         });
         interstitialAd.setDialogFrame(true);
         interstitialAd.load();

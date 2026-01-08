@@ -7,8 +7,8 @@ android {
     defaultConfig {
         minSdkVersion 17
         targetSdkVersion 33
-        versionCode 1000
-        versionName "1.0.0.0"
+        versionCode 1100
+        versionName "1.1.0.0"
         consumerProguardFiles 'consumer-rules.pro'
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
 
@@ -55,9 +55,9 @@ android {
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.0.0'
-    compileOnly(name: 'open_ad_sdk_6.6.0.7', ext: 'aar') // 穿山甲
-    compileOnly(name: 'GDTSDK.unionNormal.4.611.1481', ext: 'aar') // 广点通
-    compileOnly(name: 'Baidu_MobAds_SDK-release_v9.371', ext: 'aar') // 百度
-    compileOnly(name: 'ks_adsdk-ad-3.3.72-publishRelease', ext: 'aar') // 快手
+    compileOnly(name: 'open_ad_sdk_7.3.0.7', ext: 'aar') // 穿山甲
+    compileOnly(name: 'GDTSDK.unionNormal.4.662.1532', ext: 'aar') // 广点通
+    compileOnly(name: 'Baidu_MobAds_SDK-release_v9.422', ext: 'aar') // 百度
+    compileOnly(name: 'ks_adsdk-ad-4.11.30.1-publishRelease', ext: 'aar') // 快手
 
 }
